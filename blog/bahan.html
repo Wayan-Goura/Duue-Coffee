@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Bahan | Kopi Atma</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        :root { --gold: #d4af37; --dark-card: #151515; }
+        body { font-family: 'Poppins', sans-serif; background-color: #0d0d0d; color: white; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .text-gold { color: var(--gold); }
+        
+        .section-padding { padding: 80px 0; }
+        .underline-center { width: 60px; height: 2px; background: var(--gold); margin: 20px auto; }
+        
+        /* Card Styling */
+        .main-card {
+            background: var(--dark-card);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            margin-bottom: 40px;
+            transition: 0.3s;
+        }
+        .main-card:hover { border-color: var(--gold); }
+        
+        /* Grid Flavor Styling */
+        .flavor-card {
+            background: var(--dark-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .flavor-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        
+        .flavor-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .flavor-content { padding: 20px; }
+        
+        .brand-badge {
+            background: var(--gold);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="../home.html">KOPI ATMA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-links text-uppercase" style="font-size: 0.8rem; letter-spacing: 1px;">
+                    <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../filosofi.html">Filosofi</a></li>
+                    <li class="nav-item"><a class="nav-link active text-gold" href="../menu/index.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../informations/event.html">Event</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../galeri/galeri.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../blog/bahan.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="text-center section-padding">
+        <div class="container">
+            <h1 class="display-3 font-serif">Premium Resources</h1>
+            <div class="underline-center"></div>
+            <p class="text-white-50">Setiap bahan dipilih dengan standar tertinggi untuk menjaga jiwa dari setiap sajian.</p>
+        </div>
+    </header>
+
+<section class="container mb-5">
+        <div class="main-card">
+            <div class="row g-0 align-items-center flex-md-row-reverse">
+                
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800" 
+                         style="height: 500px; object-fit: cover;" 
+                         alt="Sunrise Hill Beans">
+                </div>
+                
+                <div class="col-md-6 p-5 text-center">
+                    <span class="text-gold small tracking-widest text-uppercase">The Masterpiece</span>
+                    <h2 class="font-serif mt-2">Sunrise Hill Full Arabica</h2>
+                    <p class="text-white-50 mt-3">
+                        Single origin kebanggaan kami. Diproses dengan metode <em>full-washed</em> untuk menghasilkan kejernihan rasa yang maksimal, menonjolkan sisi sitrus yang segar dan kelembutan aroma bunga.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="container section-padding">
+        <h2 class="font-serif text-center text-gold mb-5">The Milk Series</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-5">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1563636619-e9107da6a1bb?w=600" class="flavor-img" alt="Greenfields">
+                    <div class="flavor-content">
+                        <h4>Greenfields Fresh Milk</h4>
+                        <p class="small text-white-50">Standar emas susu segar. Memberikan tekstur yang sangat halus dan rasa gurih alami yang menyatu sempurna dengan espresso.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1635345155823-7473724c96a7?w=600" class="flavor-img" alt="Oatly">
+                    <div class="flavor-content">
+                        <h4>Oatly Oat Milk</h4>
+                        <p class="small text-white-50">Alternatif nabati terbaik dunia. Menambah dimensi rasa gandum panggang yang lezat dan tekstur yang tak kalah <em>creamy</em>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container section-padding">
+        <div class="text-center mb-5">
+            <span class="brand-badge">Kai Artisan Syrups</span>
+            <h2 class="font-serif text-gold mt-2">Classic Elegance</h2>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1595908129746-57ca1a63dd4d?w=500" class="flavor-img" alt="Vanilla">
+                    <div class="flavor-content">
+                        <h5>Vanilla</h5>
+                        <p class="small text-white-50">Eksplorasi rasa manis yang menenangkan dengan aroma vanilla Madagaskar yang autentik.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500" class="flavor-img" alt="Caramel">
+                    <div class="flavor-content">
+                        <h5>Caramel</h5>
+                        <p class="small text-white-50">Rasa karamel yang kaya, kental, dengan sentuhan <em>smoky</em> yang elegan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1534073828943-f801091bb18c?w=500" class="flavor-img" alt="Hazelnut">
+                    <div class="flavor-content">
+                        <h5>Hazelnut</h5>
+                        <p class="small text-white-50">Kekayaan rasa kacang hazelnut panggang yang memberikan aroma hangat di setiap sesapan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container section-padding">
+        <div class="text-center mb-5">
+            <span class="brand-badge">Drip Creative Syrups</span>
+            <h2 class="font-serif text-gold mt-2">Modern Flavours</h2>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-3">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1621319330640-7f2878d3886a?w=400" class="flavor-img" alt="Pandan">
+                    <div class="flavor-content">
+                        <h6>Pandan</h6>
+                        <p class="small text-white-50">Aroma daun pandan segar yang sangat kental dengan nuansa tradisional Indonesia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1501743041710-3967d01bc74a?w=400" class="flavor-img" alt="Lychee">
+                    <div class="flavor-content">
+                        <h6>Lychee</h6>
+                        <p class="small text-white-50">Buah leci tropis yang manis dan memberikan sensasi menyegarkan yang instan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1595124253363-c5c29427e0a0?w=400" class="flavor-img" alt="Peach">
+                    <div class="flavor-content">
+                        <h6>Peach</h6>
+                        <p class="small text-white-50">Keseimbangan antara rasa manis dan asam buah persik yang lembut di lidah.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="flavor-card">
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400" class="flavor-img" alt="Irish Cream">
+                    <div class="flavor-content">
+                        <h6>Irish Cream</h6>
+                        <p class="small text-white-50">Sentuhan *creamy* dan rempah lembut tanpa alkohol untuk rasa yang lebih berani.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-black text-center mt-5">
+        <p class="small text-muted">&copy; 2026 Kopi Atma. Curated with excellence.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

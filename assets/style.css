@@ -1,0 +1,201 @@
+/* --- Import Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@200;400;600&display=swap');
+
+:root {
+    --gold: #c5a059;
+    --gold-light: #e2c287;
+    --gold-low: rgba(197, 160, 89, 0.2);
+    --dark-prime: #0f0f0f;
+    --dark-sec: #1a1a1a;
+    --white-soft: #f8f8f8;
+    --glass: rgba(255, 255, 255, 0.03);
+}
+
+/* Base Tuning */
+body { 
+    font-family: 'Poppins', sans-serif; 
+    color: var(--white-soft); 
+    background-color: var(--dark-prime);
+    overflow-x: hidden;
+}
+
+/* Background Abstract Effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(197, 160, 89, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(197, 160, 89, 0.03) 0px, transparent 50%);
+    z-index: -1;
+}
+
+/* Navbar Tuning - Penyesuaian untuk Logo Gambar */
+nav { 
+    background: rgba(15, 15, 15, 0.95) !important; 
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--gold-low);
+    padding: 15px 4% !important; /* Spasi navbar lebih rapi */
+}
+
+/* Memperbaiki tampilan logo gambar agar tidak gepeng/terlalu besar */
+.navbar-brand.logo { 
+    font-family: 'Playfair Display', serif; 
+    color: var(--gold) !important; 
+    font-size: 1.5rem; 
+    letter-spacing: 2px;
+    font-weight: bold; 
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand.logo img {
+    height: 50px; /* Ukuran tinggi logo */
+    width: auto;
+    margin-right: 12px;
+    border-radius: 5px; /* Sedikit lengkungan agar tidak kaku */
+    object-fit: contain;
+}
+
+.nav-link { 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    margin-left: 20px;
+    color: var(--white-soft) !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--gold) !important;
+}
+
+/* Hero Cinematic */
+.hero { 
+    min-height: 80vh; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--dark-prime)), 
+                url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200') center/cover; 
+}
+
+/* Custom Component: Card & Preview */
+.card, .menu-preview { 
+    background: var(--dark-sec) !important; 
+    border: 1px solid var(--gold-low) !important;
+    border-radius: 0 !important; /* Luxury sharp corners */
+    transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    color: white;
+    padding: 20px;
+}
+
+.card:hover, .menu-preview:hover { 
+    border-color: var(--gold) !important;
+    background: rgba(197, 160, 89, 0.05) !important;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card img, .menu-preview img {
+    border-radius: 0;
+    filter: sepia(20%) contrast(1.1);
+    transition: 0.5s;
+}
+
+.section-title { 
+    font-family: 'Playfair Display', serif; 
+    color: var(--gold);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Buttons */
+.btn-solid { 
+    background: var(--gold); 
+    color: var(--dark-prime); 
+    text-decoration: none;
+    padding: 14px 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: 0.4s;
+}
+
+.btn-solid:hover {
+    background: var(--gold-light);
+    color: var(--dark-prime);
+    transform: scale(1.05);
+}
+
+.btn-outline { 
+    border: 1px solid var(--gold); 
+    color: var(--gold);
+    text-decoration: none;
+    padding: 12px 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-outline:hover { background: var(--gold); color: black; }
+
+.btn-link { 
+    color: var(--gold); 
+    text-decoration: none; 
+    border-bottom: 1px solid var(--gold);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    color: var(--gold-light);
+    border-color: var(--gold-light);
+    padding-left: 5px;
+}
+
+/* Event & Review Styling */
+.event-item {
+    background: var(--glass);
+    border-left: 3px solid var(--gold);
+    transition: 0.3s;
+}
+
+.event-item:hover {
+    background: rgba(197, 160, 89, 0.08);
+}
+
+.border-gold-low { border-color: var(--gold-low) !important; }
+
+.emoji-feedback button { 
+    background: var(--dark-sec);
+    border: 1px solid var(--gold-low);
+    font-size: 2rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.emoji-feedback button:hover { 
+    background: var(--gold);
+    transform: rotate(10deg) scale(1.2);
+}
+
+/* Footer */
+footer {
+    background: #050505 !important;
+}
+
+/* Responsive Fix */
+@media (max-width: 991px) {
+    .border-start { 
+        border: none !important; 
+        border-top: 1px solid var(--gold-low) !important; 
+        padding-top: 40px; 
+        margin-top: 40px; 
+    }
+    .hero h1 { font-size: 3rem; }
+}
