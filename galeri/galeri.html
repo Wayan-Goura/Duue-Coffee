@@ -3,39 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri | Kopi Atma</title>
+    <title>Gallery | Duue Coffee</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/style.css">
-</head>
-<body class="bg-dark-prime text-white">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Syne:wght@700;800&family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --duue-yellow: #FFEFB2; 
+            --duue-green: #023E38;  
+            --flash-black: #111111;
+            --white: #FFFFFF;
+        }
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4">
+        body { 
+            background-color: var(--white); 
+            color: var(--flash-black); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR UPDATED --- */
+        .navbar { 
+            background-color: var(--white) !important; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 20px 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand { 
+            font-family: 'Archivo Black', sans-serif; 
+            color: var(--flash-black) !important; 
+            font-size: 1.6rem; 
+            letter-spacing: -1px;
+        }
+
+        .nav-link { 
+            color: var(--flash-black) !important; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            font-size: 1.1rem; /* Ukuran menu diperbesar */
+            padding: 10px 20px !important; /* Jarak antar menu diperlebar */
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--coffee-brown) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--duue-green) !important;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-thickness: 3px;
+        }
+
+        /* Fix Hamburger Color */
+        .navbar-toggler { border-color: var(--flash-black); }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+
+        /* --- HERO SECTION --- */
+        .gallery-hero {
+            padding: 180px 0 60px;
+        }
+
+        .huge-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: calc(3rem + 6vw);
+            line-height: 0.9;
+            letter-spacing: -4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--duue-green);
+            margin-bottom: 20px;
+        }
+
+        /* --- GALLERY GRID --- */
+        .gallery-container {
+            column-count: 3; /* Membuat efek masonry di desktop */
+            column-gap: 20px;
+        }
+
+        @media (max-width: 992px) { .gallery-container { column-count: 2; } }
+        @media (max-width: 576px) { .gallery-container { column-count: 1; } }
+
+        .gallery-item {
+            position: relative;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            filter: grayscale(20%);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            color: white;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- FOOTER (KONSISTEN) --- */
+        footer { background: var(--flash-black); color: var(--white); padding: 50px 0; margin-top: 80px; }
+        .font-flash { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top px-4">
         <div class="container-fluid">
-            <a class="navbar-brand logo" href="../home.html">KOPI ATMA</a>
+            <a class="navbar-brand" href="../home.html">DUUE COFFEE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto nav-links">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../filosofi.html">Filosofi</a></li>
                     <li class="nav-item"><a class="nav-link" href="../menu/index.html">Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="../informations/event.html">Event</a></li>
-                    <li class="nav-item"><a class="nav-link active text-gold" href="galeri.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="galeri.html">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="../blog/bahan.html">Blog</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="section container py-5">
-        <h2 class="section-title text-center mb-5 text-gold">Suasana & Momen</h2>
-        <div class="row g-3">
-            <div class="col-md-4 col-6"><img src="https://via.placeholder.com/600x400" class="img-fluid rounded" alt="Cafe"></div>
-            <div class="col-md-4 col-6"><img src="https://via.placeholder.com/600x400" class="img-fluid rounded" alt="Barista"></div>
-            <div class="col-md-4 col-6"><img src="https://via.placeholder.com/600x400" class="img-fluid rounded" alt="Coffee"></div>
+    <header class="gallery-hero">
+        <div class="container">
+            <div class="hero-divider"></div>
+            <h1 class="huge-title">VISUAL<br>JOURNEY.</h1>
+            <p class="fw-medium text-uppercase opacity-50 letter-spacing-1">Suasana, proses, dan setiap tetes inspirasi</p>
+        </div>
+    </header>
+
+    <section class="container pb-5">
+        <div class="gallery-container">
+            
+            <div class="gallery-item">
+                <img src="../images/kumpul.jpg" alt="Space">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">The Interior</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../images/capal.jpg" alt="Coffee">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Morning Ritual</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../images/beans.jpg" alt="Beans">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Selected Beans</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../images/cappu.jpg" alt="Barista">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">The Craftsmanship</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../images/latte.jpeg" alt="Coffee Cup">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Perfect Pour</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../images/kumpul.jpg" alt="Ambience">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Slow Afternoon</span>
+                </div>
+            </div>
+
         </div>
     </section>
+
+    <footer>
+        <div class="container text-center">
+            <h2 class="font-flash mb-4" style="color: var(--duue-yellow);">DUUE COFFEE</h2>
+            <p class="opacity-50 small">&copy; 2026 DUUE COFFEE. Ubud, Bali.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

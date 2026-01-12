@@ -3,107 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Menu Premium | Kopi Atma</title>
+    <title>Menu | Duue Coffee</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Syne:wght@700;800&family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --gold: #d4af37; --dark-accent: #1a1a1a; }
-        body { font-family: 'Poppins', sans-serif; background-color: #0d0d0d; }
-
-        .menu-header { margin-bottom: 80px; }
-        .menu-header h1 { font-family: 'Playfair Display', serif; color: var(--gold); }
-
-        /* Typography */
-        .category-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
+        :root {
+            --duue-yellow: #FFEFB2; 
+            --duue-green: #023E38;  
+            --flash-black: #111111;
+            --white: #FFFFFF;
         }
-        .category-title::after {
-            content: '';
+
+        body { 
+            background-color: var(--white); 
+            color: var(--flash-black); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+                .navbar { 
+            background-color: var(--white) !important; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 20px 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand { 
+            font-family: 'Archivo Black', sans-serif; 
+            color: var(--flash-black) !important; 
+            font-size: 1.6rem; 
+            letter-spacing: -1px;
+        }
+
+        .nav-link { 
+            color: var(--flash-black) !important; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            font-size: 1.1rem; /* Ukuran menu diperbesar */
+            padding: 10px 20px !important; /* Jarak antar menu diperlebar */
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--coffee-brown) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--duue-green) !important;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-thickness: 3px;
+        }
+
+        /* Fix Hamburger Color */
+        .navbar-toggler { border-color: var(--flash-black); }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+
+        /* --- HERO SECTION --- */
+        .menu-hero {
+            padding: 180px 0 60px;
+            text-align: center;
+        }
+
+        .huge-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: calc(4.5rem + 5vw);
+            line-height: 0.8;
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .category-header {
+            background: var(--duue-green);
+            color: var(--white);
+            padding: 15px 40px;
+            display: inline-block;
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            transform: skew(-10deg);
+        }
+
+        .category-header span {
             display: block;
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-            margin: 15px auto;
+            transform: skew(10deg);
         }
 
-        /* Card Styling */
-        .card-menu {
-            background: transparent;
-            border: none;
-            text-align: center;
-            transition: transform 0.4s ease;
-            margin-bottom: 30px;
+        /* --- MENU CARD STYLING --- */
+        .menu-item {
+            margin-bottom: 50px;
+            transition: 0.3s;
         }
-        .card-menu:hover { transform: translateY(-10px); }
 
-        .img-container {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
+        .img-wrapper {
+            width: 100%;
+            aspect-ratio: 1/1;
             overflow: hidden;
-            border: 2px solid var(--gold);
-            padding: 5px;
+            background: #f4f4f4;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
         }
-        .img-container img {
+
+        .img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+            filter: grayscale(1);
+            transition: 0.5s ease;
         }
 
-        /* Price Styling */
-        .price-box {
-            display: inline-flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 10px;
+        .menu-item:hover img {
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+
+        .menu-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .menu-desc {
             font-size: 0.9rem;
-            font-weight: 600;
+            color: #666;
+            margin-bottom: 15px;
+            min-height: 40px;
         }
-        .price-item {
-            display: flex;
-            flex-direction: column;
-            min-width: 60px;
+
+        .price-tag {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.1rem;
+            color: var(--duue-green);
         }
-        .price-label {
-            font-size: 0.65rem;
-            color: #888;
+
+        .price-sub {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #999;
+            display: block;
+            margin-bottom: -5px;
+        }
+
+        .signature-card {
+    background: rgba(255, 255, 255, 0.05); /* Latar kartu transparan gelap */
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+    height: 100%;
+}
+
+.signature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.signature-img-wrapper {
+    width: 100%;
+    height: 200px; /* Tinggi seragam untuk semua foto */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.signature-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Menghindari gambar gepeng */
+    object-position: top; /* Mempertahankan bagian atas, memangkas bagian bawah */
+    transition: transform 0.5s ease;
+}
+
+.signature-card:hover .signature-img-wrapper img {
+    transform: scale(1.1); /* Efek zoom saat kartu disentuh */
+}
+
+        /* --- ADD-ONS PERBAIKAN --- */
+        .addons-box {
+            background: var(--duue-dark);
+            padding: 60px 20px;
+            border: 3px solid var(--flash-black);
+            text-align: center;
+            border-radius: 24px; /* Membuat sudut lebih modern */
+        }
+
+        .addon-badge {
+            background: var(--flash-black);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-block;
+            transition: 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .price-value { color: var(--gold); }
-        .price-divider { width: 1px; background: #333; height: 30px; }
 
-        /* Sections */
-        .bg-signature {
-            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200');
-            background-size: cover;
-            padding: 80px 0;
-            border-radius: 30px;
-            margin: 60px 0;
+        .addon-badge-syrup {
+            background: transparent;
+            color: var(--flash-black);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: inline-block;
+            border: 2px solid var(--flash-black);
+            transition: 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .addon-badge:hover, .addon-badge-syrup:hover {
+            background: var(--duue-green);
+            color: white;
+            border-color: var(--duue-green);
+            transform: translateY(-3px);
+        }
+
+        .syrup-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: rgba(0,0,0,0.4);
+            margin: 30px 0 15px;
+            display: block;
+        }
+
+        /* --- FOOTER (Identik Home) --- */
+        footer { 
+            background: var(--flash-black); 
+            color: var(--white); 
+            padding: 50px 0; 
+        }
+
+        .font-flash {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
         }
     </style>
 </head>
-<body class="text-white">
+<body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top px-4">
         <div class="container-fluid">
-            <a class="navbar-brand logo" href="../home.html">KOPI ATMA</a>
+            <a class="navbar-brand" href="#">DUUE COFFEE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto nav-links text-uppercase" style="font-size: 0.8rem; letter-spacing: 1px;">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../filosofi.html">Filosofi</a></li>
-                    <li class="nav-item"><a class="nav-link active text-gold" href="index.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu/index.html">Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="../informations/event.html">Event</a></li>
                     <li class="nav-item"><a class="nav-link" href="../galeri/galeri.html">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="../blog/bahan.html">Blog</a></li>
@@ -112,269 +270,184 @@
         </div>
     </nav>
 
-    <div class="container py-5">
-        <header class="text-center menu-header">
-            <h1 class="display-2 fw-bold">Our Menu</h1>
-            <p class="text-white-soft">Keseimbangan rasa dalam setiap cangkir</p>
-        </header>
-
-        <section class="mb-5">
-            <h2 class="category-title">Black Coffee</h2>
-            <div class="row justify-content-center g-5">
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <div class="img-container">
-                            <img src="https://images.unsplash.com/photo-1510707577719-5d6835a714c5?w=400" alt="Espresso">
-                        </div>
-                        <h4>Espresso</h4>
-                        <p class="small text-muted">Ekstraksi murni karakter biji lokal</p>
-                        <div class="price-box">
-                            <div class="price-item">
-                                <span class="price-label">Hot</span>
-                                <span class="price-value">22k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <div class="img-container">
-                            <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=400" alt="Americano">
-                        </div>
-                        <h4>Americano</h4>
-                        <p class="small text-muted">Espresso dengan air mineral seimbang</p>
-                        <div class="price-box">
-                            <div class="price-item">
-                                <span class="price-label">Hot</span>
-                                <span class="price-value">25k</span>
-                            </div>
-                            <div class="price-divider"></div>
-                            <div class="price-item">
-                                <span class="price-label">Ice</span>
-                                <span class="price-value">27k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-5">
-            <h2 class="category-title">Milk Based</h2>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-4 col-lg-3">
-                    <div class="card-menu">
-                        <div class="img-container"><img src="https://images.unsplash.com/photo-1536939459926-301728717817?w=400" alt="Latte"></div>
-                        <h5>Caffè Latte</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">30k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">32k</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card-menu">
-                        <div class="img-container"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400" alt="Cappuccino"></div>
-                        <h5>Cappuccino</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">30k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">32k</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card-menu">
-                        <div class="img-container"><img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=400" alt="Flat White"></div>
-                        <h5>Flat White</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">30k</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3">
-                    <div class="card-menu">
-                        <div class="img-container"><img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=400" alt="Piccolo"></div>
-                        <h5>Piccolo</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">28k</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center mt-5 g-4">
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <h5>Pandan Latte</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">33k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">35k</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <h5>Caramel Latte</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">33k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">35k</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <h5>Hazelnut Latte</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">33k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">35k</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <h5>Vanilla Latte</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">33k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">35k</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <h5 class="text-gold italic">Es Kopi Susu Atma</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">25k</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="bg-signature text-center">
-            <h2 class="category-title">Atma Signature</h2>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-3">
-                    <div class="card-menu">
-                        <div class="img-container" style="border-style: dashed;"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400" alt="Sig1"></div>
-                        <h6>The Atma Mist</h6>
-                        <span class="price-value">38k</span>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card-menu">
-                        <div class="img-container" style="border-style: dashed;"><img src="https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=400" alt="Sig2"></div>
-                        <h6>Cloudy Mocha</h6>
-                        <span class="price-value">38k</span>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card-menu">
-                        <div class="img-container" style="border-style: dashed;"><img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=400" alt="Sig3"></div>
-                        <h6>Sunset Brew</h6>
-                        <span class="price-value">40k</span>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card-menu">
-                        <div class="img-container" style="border-style: dashed;"><img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=400" alt="Sig4"></div>
-                        <h6>Soul Revive</h6>
-                        <span class="price-value">40k</span>
-                    </div>
-                </div>
-            </div>
+    <header class="menu-hero">
+        <div class="container">
+            <h1 class="huge-title">THE<br>CATALOG.</h1>
+            <p class="fw-bold text-uppercase opacity-50">Balance of flavors in every cup</p>
         </div>
+    </header>
 
-        <section class="mb-5">
-            <h2 class="category-title">Something Different</h2>
-            <div class="row justify-content-center g-5">
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <div class="img-container"><img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400" alt="Matcha"></div>
-                        <h5>Uji Matcha</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">33k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">35k</span></div>
-                        </div>
+    <div class="container">
+        <section class="text-center mb-5">
+            <div class="category-header"><span>Black Coffee</span></div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="https://i.pinimg.com/736x/cc/2c/49/cc2c495d1e2d19d1ed97e13d916d6273.jpg" alt="Espresso"></div>
+                        <h4 class="menu-title">Espresso</h4>
+                        <p class="menu-desc">Ekstraksi murni karakter biji lokal</p>
+                        <div class="price-tag"><span class="price-sub">Hot Only</span>20K</div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <div class="img-container"><img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?w=400" alt="Taro"></div>
-                        <h5>Taro Velvet</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">30k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">32k</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-menu">
-                        <div class="img-container"><img src="https://images.unsplash.com/photo-1544787210-22bb8306385c?w=400" alt="Choco"></div>
-                        <h5>Choco Hazelnut</h5>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">33k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">35k</span></div>
-                        </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="https://i.pinimg.com/1200x/82/80/14/828014c4dc46528a5aa8d85114f8b076.jpg" alt="Americano"></div>
+                        <h4 class="menu-title">Americano</h4>
+                        <p class="menu-desc">Espresso dengan air mineral seimbang</p>
+                        <div class="price-tag"><span class="price-sub">Hot / Ice</span>23K - 25K</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="mb-5 py-5 border-top border-dark">
-            <h2 class="category-title">Tea Series</h2>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-3">
-                    <div class="card-menu">
-                        <h6>Loose Leaf Tea</h6>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">25k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">27k</span></div>
-                        </div>
+        <section class="text-center mb-5">
+            <div class="category-header"><span>Milk Based</span></div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="../images/latte.jpeg" alt="Latte"></div>
+                        <h4 class="menu-title">Caffè Latte</h4>
+                        <p class="menu-desc">Espresso dengan susu creamy</p>
+                        <div class="price-tag"><span class="price-sub">Hot / Ice</span>25K - 28K</div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card-menu">
-                        <h6>Lychee Tea</h6>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Hot</span><span class="price-value">28k</span></div>
-                            <div class="price-divider"></div>
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">30k</span></div>
-                        </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500" alt="Cappuccino"></div>
+                        <h4 class="menu-title">Cappuccino</h4>
+                        <p class="menu-desc">Klasik dengan foam tebal</p>
+                        <div class="price-tag"><span class="price-sub">Hot / Ice</span>25K - 28K</div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card-menu">
-                        <h6>Lemon Tea</h6>
-                        <div class="price-box">
-                            <div class="price-item"><span class="price-label">Ice</span><span class="price-value">25k</span></div>
-                        </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="https://i.pinimg.com/1200x/36/37/dd/3637dd93642dfea21c1ce8fe15dab430.jpg" alt="Flat White"></div>
+                        <h4 class="menu-title">Flat White</h4>
+                        <p class="menu-desc">Susu halus nan tipis</p>
+                        <div class="price-tag"><span class="price-sub">Hot Only</span>25K</div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="text-center py-5">
-            <h4 class="text-gold mb-4">Personalize Your Cup</h4>
-            <div class="d-flex flex-wrap justify-content-center gap-3">
-                <span class="badge border border-secondary p-2">Oatmilk +10k</span>
-                <span class="badge border border-secondary p-2">Extra Shot +8k</span>
-                <span class="badge border border-secondary p-2">Add Syrup (Caramel/Hazelnut/Vanilla) +5k</span>
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="https://i.pinimg.com/1200x/4d/5f/a7/4d5fa77df28b32324e434abcba7930e7.jpg" alt="Piccolo"></div>
+                        <h4 class="menu-title">Piccolo</h4>
+                        <p class="menu-desc">Intensitas espresso dalam gelas mini</p>
+                        <div class="price-tag"><span class="price-sub">Hot Only</span>25K</div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 
-    <footer class="py-5 bg-black text-center mt-5">
-        <p class="small text-muted">&copy; 2026 Kopi Atma. Crafted for the soul.</p>
+    <section class="bg-signature">
+    <div class="container text-center">
+        <h2 class="huge-title" style="color: var(--duue-dark); font-size: calc(2.5rem + 3vw);">SIGNATURE.</h2>
+        <div class="row g-4 mt-5">
+            <div class="col-md-3">
+                <div class="signature-card">
+                    <div class="signature-img-wrapper">
+                        <img src="https://i.pinimg.com/1200x/d1/0e/53/d10e5308013309b6a8fe5202cdd46a0a.jpg" alt="The Duue Mist">
+                    </div>
+                    <h5 class="menu-title mt-3">The Duue Mist</h5>
+                    <p class="small opacity-50">Signature blend dengan sentuhan rahasia</p>
+                    <div class="price-tag text-white">38K</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="signature-card">
+                    <div class="signature-img-wrapper">
+                        <img src="https://i.pinimg.com/736x/ea/ee/42/eaee4294b5f0e702e67e51f738340ecd.jpg" alt="Cloudy Mocha">
+                    </div>
+                    <h5 class="menu-title mt-3">Cloudy Mocha</h5>
+                    <p class="small opacity-50">Cokelat premium & espresso lembut</p>
+                    <div class="price-tag text-white">38K</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="signature-card">
+                    <div class="signature-img-wrapper">
+                        <img src="https://i.pinimg.com/736x/51/d5/fd/51d5fdc8698ead5617a87f024839c0f5.jpg" alt="Sunset Brew">
+                    </div>
+                    <h5 class="menu-title mt-3">Sunset Brew</h5>
+                    <p class="small opacity-50">Kopi buah segar untuk sore hari</p>
+                    <div class="price-tag text-white">40K</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="signature-card">
+                    <div class="signature-img-wrapper">
+                        <img src="https://i.pinimg.com/1200x/b9/4b/77/b94b7733fbd74897b5e9bf423cd06ea9.jpg" alt="Soul Revive">
+                    </div>
+                    <h5 class="menu-title mt-3">Matcha Mango Star</h5>
+                    <p class="small opacity-50">Mood booster matcha based</p>
+                    <div class="price-tag text-white">40K</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="container">
+        <section class="text-center mb-5">
+            <div class="category-header"><span>Tea Series</span></div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500" alt="Loose Leaf Tea"></div>
+                        <h4 class="menu-title">Green Tea</h4>
+                        <p class="menu-desc">Seduhan daun teh pilihan kualitas premium</p>
+                        <div class="price-tag"><span class="price-sub">Hot / Ice</span>23K - 25K</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500" alt="Lychee Tea"></div>
+                        <h4 class="menu-title">Lychee Tea</h4>
+                        <p class="menu-desc">Teh segar dengan buah leci utuh</p>
+                        <div class="price-tag"><span class="price-sub">Hot / Ice</span>23K - 25K</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500" alt="Lemon Tea"></div>
+                        <h4 class="menu-title">Lemon Tea</h4>
+                        <p class="menu-desc">Keseimbangan teh hitam dan lemon segar</p>
+                        <div class="price-tag"><span class="price-sub">Ice Only</span>25K</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container mb-5 pb-5">
+        <div class="addons-box">
+            <h4 class="font-flash mb-4">Personalize Your Cup</h4>
+            
+            <div class="row g-3 justify-content-center mb-2">
+                <div class="col-auto">
+                    <div class="addon-badge">Oatmilk +10K</div>
+                </div>
+                <div class="col-auto">
+                    <div class="addon-badge">Extra Shot +8K</div>
+                </div>
+            </div>
+
+            <span class="syrup-title">CHOICE OF SYRUPS (+5K)</span>
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto"><div class="addon-badge-syrup">Hazelnut</div></div>
+                <div class="col-auto"><div class="addon-badge-syrup">Vanilla</div></div>
+                <div class="col-auto"><div class="addon-badge-syrup">Caramel</div></div>
+                <div class="col-auto"><div class="addon-badge-syrup">Butterscotch</div></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <h2 class="font-flash mb-4" style="color: var(--duue-yellow);">DUUE COFFEE</h2>
+            <p class="opacity-50 small">&copy; 2026 DUUE COFFEE. Ubud, Bali.</p>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

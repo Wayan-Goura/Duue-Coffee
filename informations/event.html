@@ -3,24 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event | Kopi Atma</title>
+    <title>Events | Duue Coffee</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/style.css">
-</head>
-<body class="bg-dark-prime text-white">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Syne:wght@700;800&family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --duue-yellow: #FFEFB2; 
+            --duue-green: #023E38;  
+            --flash-black: #111111;
+            --white: #FFFFFF;
+        }
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4">
+        body { 
+            background-color: var(--white); 
+            color: var(--flash-black); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR (TETAP) --- */
+        .navbar { 
+            background-color: var(--white) !important; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 20px 0;
+            z-index: 1000;
+        }
+        .navbar-brand { font-family: 'Archivo Black', sans-serif; color: var(--flash-black) !important; font-size: 1.6rem; }
+        .nav-link { color: var(--flash-black) !important; font-weight: 800; text-transform: uppercase; font-size: 1.1rem; padding: 10px 20px !important; }
+        .nav-link.active { color: var(--duue-green) !important; text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 3px; }
+
+        /* --- HERO SECTION (DISEMPURNAKAN) --- */
+        .event-hero {
+            padding: 180px 0 100px;
+            text-align: left;
+        }
+
+        .huge-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: calc(3rem + 6vw);
+            line-height: 0.9;
+            letter-spacing: -4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--duue-green);
+            margin-bottom: 20px;
+        }
+
+        /* --- ELEGANT EVENT LIST --- */
+        .event-wrapper {
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .event-item {
+            padding: 50px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .event-item:hover {
+            background-color: #fafafa;
+        }
+
+        .event-date-large {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-info h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            margin: 10px 0;
+            line-height: 1;
+        }
+
+        .event-info .category-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--duue-green);
+        }
+
+        .event-item:hover h3 {
+            color: var(--duue-green);
+            transform: translateX(10px);
+            transition: 0.3s ease;
+        }
+
+        .event-desc-text {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .arrow-icon {
+            font-size: 2rem;
+            opacity: 0.2;
+            transition: 0.3s;
+        }
+
+        .event-item:hover .arrow-icon {
+            opacity: 1;
+            transform: translateX(-10px);
+        }
+
+        /* --- FOOTER (TETAP) --- */
+        footer { background: var(--flash-black); color: var(--white); padding: 50px 0; margin-top: 80px; }
+        .font-flash { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top px-4">
         <div class="container-fluid">
-            <a class="navbar-brand logo" href="../home.html">KOPI ATMA</a>
+            <a class="navbar-brand" href="../home.html">DUUE COFFEE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto nav-links">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../filosofi.html">Filosofi</a></li>
                     <li class="nav-item"><a class="nav-link" href="../menu/index.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link active text-gold" href="event.html">Event</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="event.html">Event</a></li>
                     <li class="nav-item"><a class="nav-link" href="../galeri/galeri.html">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="../blog/bahan.html">Blog</a></li>
                 </ul>
@@ -28,22 +149,86 @@
         </div>
     </nav>
 
-    <section class="section container py-5">
-        <h2 class="section-title mb-5 text-gold text-center">Kalender Kegiatan</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="list-group">
-                    <div class="list-group-item bg-dark text-white border-secondary p-4 mb-3 d-flex justify-content-between align-items-center">
-                        <div>
-                            <h4 class="text-gold">Vinyl Night</h4>
-                            <p class="mb-0 text-white-soft">Dengarkan musik klasik sambil menikmati Manual Brew.</p>
+    <header class="event-hero">
+        <div class="container">
+            <div class="hero-divider"></div>
+            <h1 class="huge-title">EVENTS &<br>SESSIONS.</h1>
+            <p class="fw-medium text-uppercase opacity-50 letter-spacing-1">Bergabunglah dalam agenda bulanan kami</p>
+        </div>
+    </header>
+
+    <section class="container pb-5">
+        <div class="event-wrapper">
+            
+            <a href="#" class="event-item">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <div class="event-date-large">Jan 12</div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="event-info">
+                            <span class="category-tag">Live Session</span>
+                            <h3>Vinyl Night</h3>
                         </div>
-                        <span class="badge bg-warning text-dark">12 JAN</span>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="event-desc-text mb-0">Atmosfer analog dengan kurasi piringan hitam klasik dan pilihan Manual Brew.</p>
+                    </div>
+                    <div class="col-md-1 text-end d-none d-md-block">
+                        <div class="arrow-icon">→</div>
                     </div>
                 </div>
-            </div>
+            </a>
+
+            <a href="#" class="event-item">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <div class="event-date-large">Jan 20</div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="event-info">
+                            <span class="category-tag">Education</span>
+                            <h3>Latte Art Class</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="event-desc-text mb-0">Pelajari teknik dasar pouring bersama barista kami. Terbatas untuk 5 peserta.</p>
+                    </div>
+                    <div class="col-md-1 text-end d-none d-md-block">
+                        <div class="arrow-icon">→</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="event-item">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <div class="event-date-large">Jan 28</div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="event-info">
+                            <span class="category-tag">Community</span>
+                            <h3>Public Cupping</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="event-desc-text mb-0">Eksplorasi profil rasa berbagai biji kopi musiman dari roastery lokal pilihan.</p>
+                    </div>
+                    <div class="col-md-1 text-end d-none d-md-block">
+                        <div class="arrow-icon">→</div>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </section>
+
+    <footer>
+        <div class="container text-center">
+            <h2 class="font-flash mb-4" style="color: var(--duue-yellow);">DUUE COFFEE</h2>
+            <p class="opacity-50 small">&copy; 2026 DUUE COFFEE. Ubud, Bali.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
