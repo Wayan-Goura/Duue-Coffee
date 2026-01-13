@@ -68,7 +68,6 @@
             text-decoration-thickness: 3px;
         }
 
-        /* Fix Hamburger Color */
         .navbar-toggler { border-color: var(--flash-black); }
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -436,6 +435,39 @@
             .team-grid { min-height: auto; display: flex; flex-direction: column; align-items: center; gap: 160px; }
             .team-card { position: relative; left: auto !important; top: auto !important; right: auto !important; }
         }
+
+        /* --- ADDED RESPONSIVE STYLES --- */
+        @media (max-width: 991px) {
+            .hero-content h1 { font-size: calc(3.5rem + 5vw); }
+            
+            .filosofi-container { flex-direction: column; height: auto; }
+            .filosofi-text { flex: 0 0 100%; padding: 80px 5%; order: 2; }
+            .filosofi-image-wrapper { position: relative; width: 100%; height: 50vh; order: 1; }
+            .blur-overlay { 
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
+                -webkit-mask-image: linear-gradient(to bottom, transparent 20%, black 100%);
+            }
+
+            .menu-showcase { flex-direction: column; }
+            .menu-col { height: 400px; flex: none; width: 100%; }
+            .menu-col:hover { flex: none; }
+            .menu-vertical-title { left: 20px; top: 20px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 { font-size: 3.5rem; letter-spacing: -1px; }
+            .filosofi-title { font-size: 3rem; }
+            .menu-section h2 { font-size: 3rem !important; }
+            .team-card { width: 280px; }
+            .team-card img { height: 350px; }
+            .team-info h3 { font-size: 1.8rem; }
+            .event-title { font-size: 1.6rem; }
+        }
+
+        @media (hover: none) {
+            .hero-content:hover h1, .hero-content:hover p { opacity: 1; transform: none; }
+            .menu-col img { filter: brightness(0.8); }
+        }
     </style>
 </head>
 <body>
@@ -460,7 +492,7 @@
     </nav>
 
     <header class="hero">
-        <video id="heroVideo" autoplay muted playsinline class="video-bg">
+        <video id="heroVideo" autoplay muted playsinline loop class="video-bg">
             <source src="images/vidio2.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
@@ -502,7 +534,7 @@
                 <div class="col-md-7">
                     <h2 class="font-flash" style="font-size: 4.5rem; color: var(--flash-black);">Taste of<br>The Soul.</h2>
                 </div>
-                <div class="col-md-5 text-md-end">
+                <div class="col-md-5 text-md-end d-none d-md-block">
                     <p class="text-uppercase fw-bold opacity-50 small mb-4" style="letter-spacing: 2px;">Carefully Curated Selection</p>
                 </div>
             </div>

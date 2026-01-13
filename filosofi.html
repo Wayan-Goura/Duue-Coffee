@@ -14,6 +14,7 @@
             --duue-green: #023E38;  
             --flash-black: #111111;
             --white: #FFFFFF;
+            --coffee-brown: #8B5E3C;
         }
 
         body { 
@@ -21,9 +22,11 @@
             color: var(--flash-black); 
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-                .navbar { 
+                /* --- NAVBAR UPDATED --- */
+        .navbar { 
             background-color: var(--white) !important; 
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             padding: 20px 0;
@@ -41,8 +44,8 @@
             color: var(--flash-black) !important; 
             font-weight: 800; 
             text-transform: uppercase; 
-            font-size: 1.1rem; /* Ukuran menu diperbesar */
-            padding: 10px 20px !important; /* Jarak antar menu diperlebar */
+            font-size: 1.1rem; 
+            padding: 10px 20px !important; 
             transition: all 0.3s ease;
         }
 
@@ -58,58 +61,83 @@
             text-decoration-thickness: 3px;
         }
 
-        /* Fix Hamburger Color */
         .navbar-toggler { border-color: var(--flash-black); }
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
         }
 
         /* --- HERO --- */
-        .philosophy-hero { padding: 180px 0 60px; }
+        .philosophy-hero { padding: 160px 0 80px; }
         .huge-title {
             font-family: 'Archivo Black', sans-serif;
-            font-size: calc(4rem + 5vw);
-            line-height: 0.8;
-            letter-spacing: -5px;
+            font-size: calc(3.5rem + 5vw);
+            line-height: 0.85;
+            letter-spacing: -3px;
             text-transform: uppercase;
+        }
+        .accent-text {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            color: var(--duue-green);
+            margin-bottom: 10px;
+            display: block;
         }
 
         /* --- STORY SECTION --- */
-        .story-img { width: 100%; height: 500px; object-fit: cover; }
+        .story-img-container {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            overflow: hidden;
+        }
+        .story-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         .story-content {
-            padding: 60px;
+            padding: 80px 60px;
             background: var(--duue-green);
             color: var(--white);
-            margin-left: -80px;
+            margin-left: -100px;
             position: relative;
             z-index: 2;
         }
 
-        @media (max-width: 991px) {
-            .story-content { margin-left: 0; margin-top: -40px; padding: 30px; }
+        /* --- PHILOSOPHY DETAIL (ZIGZAG & CENTERED) --- */
+        .philosophy-detail { padding: 120px 0; }
+        
+        .phi-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 150px;
+            position: relative;
         }
 
-        /* --- NEW PHILOSOPHY SECTION (Asymmetrical Layout) --- */
-        .philosophy-detail { padding: 100px 0; position: relative; }
-        
-        .phi-box { margin-bottom: 120px; position: relative; }
-        
+        .phi-content {
+            position: relative;
+            z-index: 2;
+        }
+
         .phi-label {
             font-family: 'Archivo Black', sans-serif;
-            font-size: 10rem;
+            font-size: clamp(8rem, 15vw, 12rem);
             color: var(--duue-yellow);
             position: absolute;
-            top: -60px;
-            left: -20px;
+            top: -80px;
             z-index: -1;
-            opacity: 0.5;
+            opacity: 0.6;
             line-height: 1;
+            pointer-events: none;
         }
 
         .phi-title {
             font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
             text-transform: uppercase;
             margin-bottom: 20px;
             color: var(--duue-green);
@@ -118,33 +146,52 @@
         .phi-text {
             font-size: 1.15rem;
             line-height: 1.9;
-            max-width: 700px;
             color: #333;
+            max-width: 520px;
         }
 
-        /* Float Right Adjustment */
-        .box-right { text-align: right; }
-        .box-right .phi-text { margin-left: auto; }
-        .box-right .phi-label { left: auto; right: -20px; }
+        /* Desktop Zigzag Logic */
+        @media (min-width: 992px) {
+            .phi-item:nth-child(even) { flex-direction: row-reverse; }
+            
+            /* Ganjil (01, 03) - Teks di kiri, angka meluber ke kiri */
+            .phi-item:nth-child(odd) .phi-content { padding-left: 50px; }
+            .phi-item:nth-child(odd) .phi-label { left: -30px; }
+
+            /* Genap (02) - Teks di kanan, angka meluber ke kanan */
+            .phi-item:nth-child(even) .phi-content { padding-right: 50px; text-align: right; }
+            .phi-item:nth-child(even) .phi-label { right: -30px; text-align: right; }
+            .phi-item:nth-child(even) .phi-text { margin-left: auto; }
+        }
 
         /* --- VISION BANNER --- */
         .vision-banner {
             background: var(--flash-black);
             color: var(--white);
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
         }
 
-        /* --- FOOTER (Identik Home) --- */
+        /* --- FOOTER --- */
         footer { 
             background: var(--flash-black); 
             color: var(--white); 
-            padding: 50px 0; 
+            padding: 60px 0; 
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .font-flash {
-            font-family: 'Archivo Black', sans-serif;
-            text-transform: uppercase;
+        .font-flash { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; }
+
+        /* --- RESPONSIVE FIXES --- */
+        @media (max-width: 991px) {
+            .story-img-container { min-height: 350px; }
+            .story-content { margin-left: 0; padding: 60px 30px; }
+            
+            .phi-item { margin-bottom: 120px; justify-content: center; text-align: center; }
+            .phi-label { left: 50%; transform: translateX(-50%); top: -60px; opacity: 0.4; }
+            .phi-text { margin: 0 auto; }
+            
+            .philosophy-hero { padding-top: 130px; }
         }
     </style>
 </head>
@@ -171,68 +218,83 @@
 
     <section class="philosophy-hero">
         <div class="container text-center">
-            <p class="accent-text mb-0">The Soul of Tirta Tawar</p>
+            <span class="accent-text">The Soul of Tirta Tawar</span>
             <h1 class="huge-title">OUR<br>ESSENCE.</h1>
         </div>
     </section>
 
-    <section class="container-fluid px-0">
-        <div class="row g-0 align-items-center">
+    <section class="container-fluid px-0 overflow-hidden">
+        <div class="row g-0 align-items-stretch">
             <div class="col-lg-7">
-                <img src="images/leneng.jpg">
+                <div class="story-img-container">
+                    <img src="images/leneng.jpg" alt="Duue Coffee Ubud">
+                </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-5 d-flex align-items-center">
                 <div class="story-content">
-                    <h2 class="font-flash mb-4 text-uppercase fw-bold" style="font-family: 'Archivo Black';">Starting from Unrest</h2>
-                    <div class="narrative-p">
+                    <h2 class="font-flash mb-4" style="font-size: 2rem; color: var(--duue-yellow);">Starting from Unrest</h2>
+                    <p class="narrative-p mb-4" style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9;">
                         Duue Coffee wasn't born in a luxury office building, but rather in a small garage in a corner of Ubud in early 2024. We saw specialty coffee slowly becoming something "cold" and full of intimidating regulations.
-                    </div>
-                    <div class="narrative-p">
+                    </p>
+                    <p class="narrative-p" style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9;">
                         We want to return coffee to its roots: a medium for socializing. By restoring every corner of our own space, Duue Coffee was built as a place where the aroma of coffee meets the honest rhythm of Tirta Tawar's streets.
-                    </div>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="philosophy-detail container">
-        
-        <div class="phi-box">
-            <span class="phi-label">01</span>
-            <h2 class="phi-title">Our Name</h2>
-            <p class="phi-text">
-                The duality that merges. The name **Duue** is a reminder of the inseparable relationship between the farmer who plants with patience and us who brews it with precision. We believe that honest taste only emerges from fair collaboration. Without either, your cup is just plain water—With Duue, it becomes a story.
-            </p>
-        </div>
+    <section class="philosophy-detail">
+        <div class="container">
+            
+            <div class="row phi-item">
+                <div class="col-lg-6 phi-content">
+                    <span class="phi-label">01</span>
+                    <h2 class="phi-title">Our Name</h2>
+                    <p class="phi-text">
+                        The duality that merges. The name <strong>Duue</strong> is a reminder of the inseparable relationship between the farmer who plants with patience and us who brews it with precision. We believe that honest taste only emerges from fair collaboration.
+                    </p>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block"></div>
+            </div>
 
-        <div class="phi-box box-right">
-            <span class="phi-label">02</span>
-            <h2 class="phi-title">Color Spectrum</h2>
-            <p class="phi-text">
-                Our visual story is about harmony. The dark green we use represents the lushness of Ubud's forests that soothe the soul, while the golden yellow symbolizes the warmth of interaction at our tables. We designed Duue to be an "oasis" where you feel calm yet inspired by the energy within.
-            </p>
-        </div>
+            <div class="row phi-item">
+                <div class="col-lg-6 phi-content">
+                    <span class="phi-label">02</span>
+                    <h2 class="phi-title">Color Spectrum</h2>
+                    <p class="phi-text">
+                        Our visual story is about harmony. The dark green represents the lushness of Ubud's forests that soothe the soul, while the golden yellow symbolizes the warmth of interaction. An "oasis" designed to make you feel calm yet inspired.
+                    </p>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block"></div>
+            </div>
 
-        <div class="phi-box">
-            <span class="phi-label">03</span>
-            <h2 class="phi-title">Service Etiquette</h2>
-            <p class="phi-text">
-                Here, you are not just a queue number. We implement an inclusive service culture—where coffee education is given without an intimidating impression. We serve people with all their stories, creating a community that grows together with every sip, ensuring every guest leaves with a smile and new inspiration.
-            </p>
-        </div>
+            <div class="row phi-item">
+                <div class="col-lg-6 phi-content">
+                    <span class="phi-label">03</span>
+                    <h2 class="phi-title">Service Etiquette</h2>
+                    <p class="phi-text">
+                        Here, you are not just a queue number. We implement an inclusive service culture—where coffee education is given without an intimidating impression. We serve people with all their stories, creating a community that grows together.
+                    </p>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block"></div>
+            </div>
 
+        </div>
     </section>
 
     <section class="vision-banner">
         <div class="container">
-            <h2 class="font-flash" style="font-size: calc(2rem + 2vw); color: var(--duue-yellow);">ROOTED IN UBUD.</h2>
-            <p class="mt-4 opacity-75 mx-auto" style="max-width: 600px;">"Building an inclusive third space; a place where strangers become friends, and old friends become family, while celebrating Ubud's local rhythms."</p>
+            <h2 class="font-flash" style="font-size: calc(1.8rem + 1.5vw); color: var(--duue-yellow);">ROOTED IN UBUD.</h2>
+            <p class="mt-4 opacity-75 mx-auto" style="max-width: 650px; font-size: 1.1rem; line-height: 1.8;">
+                "Building an inclusive third space; a place where strangers become friends, and old friends become family, while celebrating Ubud's local rhythms."
+            </p>
         </div>
     </section>
 
     <footer>
         <div class="container text-center">
-            <h2 class="font-flash mb-4" style="color: var(--duue-yellow);">DUUE COFFEE</h2>
+            <h2 class="font-flash mb-4" style="color: var(--duue-yellow); font-size: 1.8rem;">DUUE COFFEE</h2>
             <p class="opacity-50 small">&copy; 2026 DUUE COFFEE. Ubud, Bali.</p>
         </div>
     </footer>

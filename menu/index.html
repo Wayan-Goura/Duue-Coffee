@@ -23,7 +23,7 @@
             overflow-x: hidden;
         }
 
-                .navbar { 
+        .navbar { 
             background-color: var(--white) !important; 
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             padding: 20px 0;
@@ -41,13 +41,13 @@
             color: var(--flash-black) !important; 
             font-weight: 800; 
             text-transform: uppercase; 
-            font-size: 1.1rem; /* Ukuran menu diperbesar */
-            padding: 10px 20px !important; /* Jarak antar menu diperlebar */
+            font-size: 1.1rem; 
+            padding: 10px 20px !important; 
             transition: all 0.3s ease;
         }
 
         .nav-link:hover {
-            color: var(--coffee-brown) !important;
+            color: var(--duue-green) !important;
             transform: translateY(-2px);
         }
 
@@ -58,7 +58,6 @@
             text-decoration-thickness: 3px;
         }
 
-        /* Fix Hamburger Color */
         .navbar-toggler { border-color: var(--flash-black); }
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -152,46 +151,50 @@
             margin-bottom: -5px;
         }
 
+        /* --- SIGNATURE SECTION --- */
+        .bg-signature {
+            padding: 80px 0;
+            background: var(--duue-green);
+            margin-bottom: 50px;
+        }
+
         .signature-card {
-    background: rgba(255, 255, 255, 0.05); /* Latar kartu transparan gelap */
-    padding: 20px;
-    border-radius: 15px;
-    transition: 0.3s;
-    height: 100%;
-}
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            transition: 0.3s;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.signature-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
-}
+        .signature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-.signature-img-wrapper {
-    width: 100%;
-    height: 200px; /* Tinggi seragam untuk semua foto */
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+        .signature-img-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
 
-.signature-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Menghindari gambar gepeng */
-    object-position: top; /* Mempertahankan bagian atas, memangkas bagian bawah */
-    transition: transform 0.5s ease;
-}
+        .signature-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s ease;
+        }
 
-.signature-card:hover .signature-img-wrapper img {
-    transform: scale(1.1); /* Efek zoom saat kartu disentuh */
-}
-
-        /* --- ADD-ONS PERBAIKAN --- */
+        /* --- ADD-ONS --- */
         .addons-box {
-            background: var(--duue-dark);
+            background: #f9f9f9;
             padding: 60px 20px;
             border: 3px solid var(--flash-black);
             text-align: center;
-            border-radius: 24px; /* Membuat sudut lebih modern */
+            border-radius: 24px;
         }
 
         .addon-badge {
@@ -204,7 +207,6 @@
             display: inline-block;
             transition: 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .addon-badge-syrup {
@@ -236,7 +238,45 @@
             display: block;
         }
 
-        /* --- FOOTER (Identik Home) --- */
+        /* --- RESPONSIVE MOBILE FIX --- */
+        @media (max-width: 767.98px) {
+            .menu-scroll-wrapper {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 30px;
+                margin-left: -15px; 
+                margin-right: -15px;
+                padding-left: 15px;
+            }
+            
+            .menu-scroll-wrapper::-webkit-scrollbar {
+                display: none; 
+            }
+
+            .menu-scroll-wrapper > [class*="col-"] {
+                flex: 0 0 80%;
+                max-width: 80%;
+                min-width: 280px;
+                scroll-snap-align: center;
+                margin-bottom: 0 !important;
+            }
+
+            .huge-title { 
+                font-size: 3.5rem !important; 
+                letter-spacing: -2px !important; 
+            }
+
+            .category-header { 
+                margin-bottom: 30px; 
+                padding: 10px 30px; 
+            }
+
+            .bg-signature { padding: 60px 0; }
+        }
+
         footer { 
             background: var(--flash-black); 
             color: var(--white); 
@@ -261,7 +301,7 @@
                 <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../filosofi.html">Filosofi</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="menu/index.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="../informations/event.html">Event</a></li>
                     <li class="nav-item"><a class="nav-link" href="../galeri/galeri.html">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="../blog/bahan.html">Blog</a></li>
@@ -280,7 +320,7 @@
     <div class="container">
         <section class="text-center mb-5">
             <div class="category-header"><span>Black Coffee</span></div>
-            <div class="row g-4">
+            <div class="row g-4 menu-scroll-wrapper">
                 <div class="col-md-6 col-lg-3">
                     <div class="menu-item">
                         <div class="img-wrapper"><img src="https://i.pinimg.com/736x/cc/2c/49/cc2c495d1e2d19d1ed97e13d916d6273.jpg" alt="Espresso"></div>
@@ -302,7 +342,7 @@
 
         <section class="text-center mb-5">
             <div class="category-header"><span>Milk Based</span></div>
-            <div class="row g-4">
+            <div class="row g-4 menu-scroll-wrapper">
                 <div class="col-md-6 col-lg-3">
                     <div class="menu-item">
                         <div class="img-wrapper"><img src="../images/latte.jpeg" alt="Latte"></div>
@@ -340,66 +380,58 @@
     </div>
 
     <section class="bg-signature">
-    <div class="container text-center">
-        <h2 class="huge-title" style="color: var(--duue-dark); font-size: calc(2.5rem + 3vw);">SIGNATURE.</h2>
-        <div class="row g-4 mt-5">
-            <div class="col-md-3">
-                <div class="signature-card">
-                    <div class="signature-img-wrapper">
-                        <img src="https://i.pinimg.com/1200x/d1/0e/53/d10e5308013309b6a8fe5202cdd46a0a.jpg" alt="The Duue Mist">
+        <div class="container text-center">
+            <h2 class="huge-title text-white">SIGNATURE.</h2>
+            <div class="row g-4 mt-5 menu-scroll-wrapper">
+                <div class="col-md-3">
+                    <div class="signature-card text-white">
+                        <div class="signature-img-wrapper"><img src="https://i.pinimg.com/1200x/d1/0e/53/d10e5308013309b6a8fe5202cdd46a0a.jpg" alt="The Duue Mist"></div>
+                        <h5 class="menu-title mt-3">The Duue Mist</h5>
+                        <p class="small opacity-50">Signature blend dengan sentuhan rahasia</p>
+                        <div class="price-tag text-white">38K</div>
                     </div>
-                    <h5 class="menu-title mt-3">The Duue Mist</h5>
-                    <p class="small opacity-50">Signature blend dengan sentuhan rahasia</p>
-                    <div class="price-tag text-white">38K</div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="signature-card">
-                    <div class="signature-img-wrapper">
-                        <img src="https://i.pinimg.com/736x/ea/ee/42/eaee4294b5f0e702e67e51f738340ecd.jpg" alt="Cloudy Mocha">
+                <div class="col-md-3">
+                    <div class="signature-card text-white">
+                        <div class="signature-img-wrapper"><img src="https://i.pinimg.com/736x/ea/ee/42/eaee4294b5f0e702e67e51f738340ecd.jpg" alt="Cloudy Mocha"></div>
+                        <h5 class="menu-title mt-3">Cloudy Mocha</h5>
+                        <p class="small opacity-50">Cokelat premium & espresso lembut</p>
+                        <div class="price-tag text-white">38K</div>
                     </div>
-                    <h5 class="menu-title mt-3">Cloudy Mocha</h5>
-                    <p class="small opacity-50">Cokelat premium & espresso lembut</p>
-                    <div class="price-tag text-white">38K</div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="signature-card">
-                    <div class="signature-img-wrapper">
-                        <img src="https://i.pinimg.com/736x/51/d5/fd/51d5fdc8698ead5617a87f024839c0f5.jpg" alt="Sunset Brew">
+                <div class="col-md-3">
+                    <div class="signature-card text-white">
+                        <div class="signature-img-wrapper"><img src="https://i.pinimg.com/736x/51/d5/fd/51d5fdc8698ead5617a87f024839c0f5.jpg" alt="Sunset Brew"></div>
+                        <h5 class="menu-title mt-3">Sunset Brew</h5>
+                        <p class="small opacity-50">Kopi buah segar untuk sore hari</p>
+                        <div class="price-tag text-white">40K</div>
                     </div>
-                    <h5 class="menu-title mt-3">Sunset Brew</h5>
-                    <p class="small opacity-50">Kopi buah segar untuk sore hari</p>
-                    <div class="price-tag text-white">40K</div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="signature-card">
-                    <div class="signature-img-wrapper">
-                        <img src="https://i.pinimg.com/1200x/b9/4b/77/b94b7733fbd74897b5e9bf423cd06ea9.jpg" alt="Soul Revive">
+                <div class="col-md-3">
+                    <div class="signature-card text-white">
+                        <div class="signature-img-wrapper"><img src="https://i.pinimg.com/1200x/b9/4b/77/b94b7733fbd74897b5e9bf423cd06ea9.jpg" alt="Soul Revive"></div>
+                        <h5 class="menu-title mt-3">Matcha Mango</h5>
+                        <p class="small opacity-50">Mood booster matcha based</p>
+                        <div class="price-tag text-white">40K</div>
                     </div>
-                    <h5 class="menu-title mt-3">Matcha Mango Star</h5>
-                    <p class="small opacity-50">Mood booster matcha based</p>
-                    <div class="price-tag text-white">40K</div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <div class="container">
         <section class="text-center mb-5">
             <div class="category-header"><span>Tea Series</span></div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-3">
+            <div class="row g-4 menu-scroll-wrapper">
+                <div class="col-md-6 col-lg-4">
                     <div class="menu-item">
-                        <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500" alt="Loose Leaf Tea"></div>
+                        <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500" alt="Green Tea"></div>
                         <h4 class="menu-title">Green Tea</h4>
                         <p class="menu-desc">Seduhan daun teh pilihan kualitas premium</p>
                         <div class="price-tag"><span class="price-sub">Hot / Ice</span>23K - 25K</div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="menu-item">
                         <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500" alt="Lychee Tea"></div>
                         <h4 class="menu-title">Lychee Tea</h4>
@@ -407,7 +439,7 @@
                         <div class="price-tag"><span class="price-sub">Hot / Ice</span>23K - 25K</div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="menu-item">
                         <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500" alt="Lemon Tea"></div>
                         <h4 class="menu-title">Lemon Tea</h4>
@@ -417,23 +449,14 @@
                 </div>
             </div>
         </section>
-    </div>
 
-    <div class="container mb-5 pb-5">
-        <div class="addons-box">
+        <div class="addons-box mb-5">
             <h4 class="font-flash mb-4">Personalize Your Cup</h4>
-            
             <div class="row g-3 justify-content-center mb-2">
-                <div class="col-auto">
-                    <div class="addon-badge">Oatmilk +10K</div>
-                </div>
-                <div class="col-auto">
-                    <div class="addon-badge">Extra Shot +8K</div>
-                </div>
+                <div class="col-auto"><div class="addon-badge">Oatmilk +10K</div></div>
+                <div class="col-auto"><div class="addon-badge">Extra Shot +8K</div></div>
             </div>
-
             <span class="syrup-title">CHOICE OF SYRUPS (+5K)</span>
-
             <div class="row g-2 justify-content-center">
                 <div class="col-auto"><div class="addon-badge-syrup">Hazelnut</div></div>
                 <div class="col-auto"><div class="addon-badge-syrup">Vanilla</div></div>

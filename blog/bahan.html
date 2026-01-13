@@ -20,9 +20,10 @@
             background-color: var(--white); 
             color: var(--flash-black); 
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* --- NAVBAR UPDATED --- */
+        /* --- NAVBAR --- */
         .navbar { 
             background-color: var(--white) !important; 
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -41,16 +42,12 @@
             color: var(--flash-black) !important; 
             font-weight: 800; 
             text-transform: uppercase; 
-            font-size: 1.1rem; /* Ukuran menu diperbesar */
-            padding: 10px 20px !important; /* Jarak antar menu diperlebar */
+            font-size: 1.1rem; 
+            padding: 10px 20px !important; 
             transition: all 0.3s ease;
         }
 
-        .nav-link:hover {
-            color: var(--coffee-brown) !important;
-            transform: translateY(-2px);
-        }
-
+        .nav-link:hover { color: var(--duue-green) !important; transform: translateY(-2px); }
         .nav-link.active {
             color: var(--duue-green) !important;
             text-decoration: underline;
@@ -58,14 +55,10 @@
             text-decoration-thickness: 3px;
         }
 
-        /* Fix Hamburger Color */
         .navbar-toggler { border-color: var(--flash-black); }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-        }
 
         /* --- HERO SECTION --- */
-        .resource-hero { padding: 180px 0 80px; }
+        .resource-hero { padding: 180px 0 60px; }
         .huge-title {
             font-family: 'Archivo Black', sans-serif;
             font-size: calc(3rem + 5vw);
@@ -88,10 +81,7 @@
             padding-bottom: 10px;
         }
 
-        .feature-box {
-            border: 1px solid #e0e0e0;
-            transition: 0.3s;
-        }
+        .feature-box { border: 1px solid #e0e0e0; transition: 0.3s; overflow: hidden; }
         .feature-box:hover { border-color: var(--duue-green); }
         .feature-img { width: 100%; height: 450px; object-fit: cover; }
         
@@ -101,26 +91,19 @@
             height: 100%;
             transition: 0.3s;
         }
-        .resource-card:hover { transform: translateY(-5px); }
         
-        /* FIX UNTUK GAMBAR TERPOTONG */
         .resource-card img {
             width: 100%;
-            height: 280px; /* Sedikit lebih tinggi untuk produk botol */
-            object-fit: contain; /* Memastikan seluruh botol terlihat */
-            background-color: #fcfcfc; /* Latar belakang netral agar konsisten */
+            height: 280px;
+            object-fit: contain;
+            background-color: #fcfcfc;
             margin-bottom: 20px;
             filter: grayscale(100%);
             transition: 0.5s;
             padding: 15px;
         }
         
-        /* Khusus untuk Pastry, kita bisa tetap gunakan 'cover' jika ingin zoom estetik */
-        .pastry-grid .resource-card img {
-            object-fit: cover;
-            padding: 0;
-        }
-
+        .pastry-grid .resource-card img { object-fit: cover; padding: 0; }
         .resource-card:hover img { filter: grayscale(0%); }
         .resource-card h4 {
             font-family: 'Syne', sans-serif;
@@ -129,6 +112,7 @@
             font-size: 1.2rem;
             margin-top: 10px;
         }
+
         .brand-tag {
             font-size: 0.7rem;
             font-weight: 900;
@@ -138,8 +122,38 @@
             margin-bottom: 10px;
         }
 
+        /* --- RESPONSIVE MOBILE FIXES --- */
+        @media (max-width: 767.98px) {
+            .resource-hero { padding: 140px 0 40px; }
+            .huge-title { font-size: 3.5rem; letter-spacing: -2px; }
+            
+            /* Feature Box (Coffee) layout adjustment */
+            .feature-img { height: 300px; }
+            .feature-box .p-5 { padding: 30px 20px !important; }
+
+            /* Pastry Horizontal Scroll */
+            .pastry-scroll {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                margin-left: -15px;
+                margin-right: -15px;
+                padding-left: 15px;
+                padding-bottom: 20px;
+            }
+            .pastry-scroll::-webkit-scrollbar { display: none; }
+            .pastry-scroll .col-md-3 {
+                flex: 0 0 75%;
+                max-width: 75%;
+                scroll-snap-align: start;
+            }
+            .pastry-scroll .resource-card { border-bottom: none; }
+        }
+
         /* --- FOOTER --- */
-        footer { background: var(--flash-black); color: var(--white); padding: 50px 0; margin-top: 100px; }
+        footer { background: var(--flash-black); color: var(--white); padding: 50px 0; margin-top: 60px; }
         .font-flash { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; }
     </style>
 </head>
@@ -168,7 +182,7 @@
         <div class="container">
             <div class="hero-divider"></div>
             <h1 class="huge-title">PREMIUM<br>RESOURCES.</h1>
-            <p class="fw-medium text-uppercase opacity-50 letter-spacing-1">Kurasi bahan untuk hasil yang konsisten</p>
+            <p class="fw-medium text-uppercase opacity-50">Kurasi bahan untuk hasil yang konsisten</p>
         </div>
     </header>
 
@@ -182,7 +196,7 @@
                 <div class="col-md-6 p-5">
                     <span class="brand-tag">Single Origin</span>
                     <h2 class="font-flash mb-3">Sunrise Hill Arabica</h2>
-                    <p class="text-muted">Single origin kebanggaan kami. Diproses dengan metode full-washed untuk menghasilkan kejernihan rasa yang maksimal.</p>
+                    <p class="text-muted">Single origin kebanggaan kami. Diproses dengan metode full-washed untuk menghasilkan kejernihan rasa yang maksimal dengan body yang balance.</p>
                 </div>
             </div>
         </div>
@@ -190,13 +204,13 @@
 
     <section class="container py-5">
         <span class="section-label">02 / The Milk Series</span>
-        <div class="row g-5">
+        <div class="row g-4">
             <div class="col-md-6">
                 <div class="resource-card">
                     <img src="https://i.pinimg.com/1200x/91/8a/0c/918a0c66dd77ce3283be637ca75db3b1.jpg" alt="Greenfields">
                     <span class="brand-tag">Dairy</span>
                     <h4>Greenfields Fresh Milk</h4>
-                    <p class="text-muted small">Susu segar berkualitas tinggi yang memberikan tekstur gurih alami.</p>
+                    <p class="text-muted small">Susu segar berkualitas tinggi yang memberikan tekstur gurih alami dan foam yang silky.</p>
                 </div>
             </div>
             <div class="col-md-6">
@@ -204,15 +218,15 @@
                     <img src="https://i.pinimg.com/1200x/d1/05/53/d105534c2f4ed6df9b8b7a23a755f8a4.jpg" alt="Oatly">
                     <span class="brand-tag">Plant-Based</span>
                     <h4>Oatly Oat Milk</h4>
-                    <p class="text-muted small">Pilihan nabati terbaik untuk rasa yang lebih nutty.</p>
+                    <p class="text-muted small">Pilihan nabati terbaik bagi penikmat kopi yang mencari rasa lebih nutty dan ramah vegan.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="container py-5 pastry-grid">
-        <span class="section-label">03 / Braud Artisan Pastry Selection</span>
-        <div class="row g-4">
+        <span class="section-label">03 / Braud Artisan Pastry</span>
+        <div class="row g-4 pastry-scroll">
             <div class="col-md-3 col-sm-6">
                 <div class="resource-card">
                     <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=500" alt="Almond Croissant">
